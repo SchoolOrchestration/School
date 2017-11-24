@@ -1,0 +1,22 @@
+---
+- name: Create location for configs
+  file:
+    path: /code/configs/
+    state: directory
+- name: Create config files
+  template:
+    src: '{{item}}'
+    dest: '/code/configs/{{item}}'
+  with_items:
+    - digital_ocean.ini
+    - secrets.yml
+    - settings.yml
+  delegate_to: localhost
+- name: create school compose file
+  template:
+    src: 'docker-compose.school.yml'
+    dest: '/code/docker-compose.school.yml'
+  delegate_to: localhost
+- name: encrypt secrets
+  debug:
+    msg: 'todo'

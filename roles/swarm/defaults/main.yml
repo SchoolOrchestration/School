@@ -1,0 +1,4 @@
+---
+docker_swarm_network: 192.168.1.0/24
+docker_swarm_addr: "{{ hostvars[inventory_hostname]['ansible_eth1']['ipv4']['address'] }}"
+docker_swarm_port: 2377

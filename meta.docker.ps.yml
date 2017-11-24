@@ -1,0 +1,9 @@
+---
+- hosts: swarm
+  tasks:
+    - name: docker ps
+      command: 'docker ps --format "{% raw %}{{.ID}}: {{.Names}} - {{.Status}}{% endraw %}"'
+      become: yes
+      register: processes
+    - name: info
+      debug: var=processes.stdout_lines

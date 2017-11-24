@@ -1,0 +1,9 @@
+version: "3"
+services:
+  school:
+    build: .
+    volumes:
+      - .:/code
+      - ~/.ssh:/root/.ssh # map ssh keys
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False

@@ -1,0 +1,15 @@
+# swarm_droplet_image: ..
+
+# users who you'd like to have ssh access to servers in your swarm
+# ssh_users:
+# - username: ..
+#   full_name: ..
+#   github_username: ..
+
+# postgres_db_host:
+# swarm_ip:
+# canonical_tld:
+
+# kong_admin_base_url:
+# kong_base_url:
+

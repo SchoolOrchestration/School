@@ -1,0 +1,45 @@
+---
+- name: install python name script
+  pip:
+    name: petname
+    state: present
+- name: get a name
+  command: petname --words 3
+  register: petname
+- debug: var=petname.stdout
+- name: Get ssh ssh keys
+  uri:
+    url: https://api.digitalocean.com/v2/account/keys
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+  register: ssh_keys
+
+- name: Create Swarm Nodes
+  digital_ocean:
+    api_token: "{{ digital_ocean_token }}"
+    command: droplet
+    ssh_key_ids: "{{ ssh_keys|json_query('json.ssh_keys[*].id') }}"
+    name: "swarm-{{ petname.stdout }}"
+    size_id: "{{ swarm_droplet_size }}"
+    region_id: "{{ swarm_region }}"
+    image_id: "{{ swarm_droplet_image }}"
+    private_networking: "{{ swarm_private_networking }}"
+    wait: yes
+    wait_timeout: 500
+    state: present
+    unique_name: true
+  register: swarm_drop
+  delegate_to: 127.0.0.1
+
+- name: Tag as a swarm server
+  digital_ocean_tag:
+    api_token: "{{ digital_ocean_token }}"
+    name: "{{item}}"
+    resource_id: "{{ swarm_drop.droplet.id }}"
+    state: present
+  delegate_to: 127.0.0.1
+  with_items:
+    - swarm
+    - installing
+

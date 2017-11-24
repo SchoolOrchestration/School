@@ -1,0 +1,16 @@
+---
+- name: Open SSH access
+  ufw:
+    rule: allow
+    name: OpenSSH
+
+- name: Open up application specific ports
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+  with_items: "{{ securedroplet_servertypes[server_type].services }}"
+
+- name: Enable the firewall
+  ufw:
+    state: enabled
+    policy: deny

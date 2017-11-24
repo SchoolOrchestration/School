@@ -1,0 +1,13 @@
+version: "3"
+services:
+  school:
+    image: appointmentguru/school:latest
+    volumes:
+      - ~/.ssh:/root/.ssh # map ssh keys
+      - ./configs/secrets.yml:/code/ansible/group_vars/all/secrets.yml
+      - ./configs/settings.yml:/code/ansible/group_vars/all/settings.yml
+      - ./configs/digital_ocean.ini:/etc/ansible/inventory/digital_ocean.ini
+    command: ansible-playbook ansible/school.play.yml  -i ansible/inventory/digital_ocean.py
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False
+      - ANSIBLE_LIBRARY=/etc/ansible/library

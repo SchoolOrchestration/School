@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - command: whoami
+      register: whoami
+    - debug: var=whoami

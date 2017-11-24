@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  vars_prompt:
+    - name: do_token
+      prompt: What is your digital ocean token?
+      private: yes
+    - name: ansible_user
+      prompt: What username will you use to login to remote servers?
+      private: no
+  roles:
+    - bootstrap

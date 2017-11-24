@@ -1,0 +1,15 @@
+---
+users: []
+securedroplet_servertypes:
+  web:
+    services:
+    - http
+    - https
+  database:
+    services:
+    - postgresql
+  swarm:
+    services:
+    - 2377  # for cluster management communications
+    - 7946  # for communication among nodes
+    - 4789  # overlay network traffic

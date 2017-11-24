@@ -1,0 +1,23 @@
+---
+- name: Create users
+  user:
+    name: "{{ item.username }}"
+    comment: "{{ item.full_name }}"
+    groups: "{{ item.groups | default('admin') }}"
+    append: yes
+    shell: "{{ item.shell | default('/bin/bash') }}"
+  with_items: '{{ users }}'
+
+- name: Set authorized_key for each user
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "https://github.com/{{ item.github_username }}.keys"
+  with_items: '{{ users }}'
+
+- name: Give admin group passwordless sudo access
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%admin'
+    line: '%admin ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'

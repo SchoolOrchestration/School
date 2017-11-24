@@ -1,0 +1,7 @@
+---
+# Modern versions of Ubuntu don't have Python2 installed, which Ansible depends on.
+# The raw module doesn't require Python2 on the remote server, so it's a way to
+# install Python for Ansible
+- name: Install Python 2
+  raw: >
+    test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
