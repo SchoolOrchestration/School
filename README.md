@@ -3,22 +3,26 @@ A collection of Ansible playbooks for orchestrating and managing a Swarm or Kube
 
 ## Getting started
 
-> Zero to cluster in < 10 mins. 
+> Zero to cluster in < 10 mins.
 
-### Step 1. Bootstrap your environment 
+### Step 1. Bootstrap your environment
 
-This step will setup your control center for your swarm. 
+This step will setup your control center for your swarm.
 
-### Step 2. Create your swarm 
-
-```
-sh ./school.sh init 
-```
-
-### Step 3. Start running some services in your swarm 
+### Step 2. Create your swarm
 
 ```
-sh ./school.sh scaffold 
+# prod
+sh ./school.sh init
+
+# dev
+docker-compose run --rm school ansible-playbook provision.swarm.node.yml -i inventory/digital_ocean.py
+```
+
+### Step 3. Start running some services in your swarm
+
+```
+sh ./school.sh scaffold
 ```
 
 ### Step 4. Next steps
@@ -26,10 +30,10 @@ sh ./school.sh scaffold
 * Create a swarm node snapshot
 
 
-## Maintaining your swarm: 
+## Maintaining your swarm:
 
-Maintenance tasks: 
+Maintenance tasks:
 
-* Roll servers 
-* Resize the swarm 
+* Roll servers
+* Resize the swarm
 * ...
