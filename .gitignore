@@ -1,2 +1,3 @@
 inventory/digital_ocean.ini
 group_vars/all.yml
+.DS_Store
