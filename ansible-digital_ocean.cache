@@ -498,8 +498,7 @@
         "snapshot_ids": [], 
         "status": "active", 
         "tags": [
-          "swarm", 
-          "installing"
+          "swarm"
         ], 
         "vcpus": 2, 
         "volume_ids": []
@@ -641,8 +640,7 @@
           "do_snapshot_ids": [], 
           "do_status": "active", 
           "do_tags": [
-            "swarm", 
-            "installing"
+            "swarm"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -1067,12 +1065,6 @@
         "46.101.184.5", 
         "165.227.150.6", 
         "207.154.249.119", 
-        "159.89.7.219"
-      ], 
-      "vars": {}
-    }, 
-    "installing": {
-      "hosts": [
         "159.89.7.219"
       ], 
       "vars": {}
