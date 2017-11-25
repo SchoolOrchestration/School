@@ -1,0 +1,16 @@
+---
+- hosts: swarm
+  tasks:
+    - name: docker ps
+      command: "docker info --format '{%raw%}{{json .Swarm.ControlAvailable}}'{%endraw%}"
+      become: yes
+      register: control_machine
+    - debug: var=control_machine.stdout_lines
+
+    - name: Tag as manager
+      include: 'includes/add_manager_tags.yml'
+      when: control_machine.stdout_lines[0] == "true"
+
+    - name: Tag as worker
+      include: 'includes/add_worker_tags.yml'
+      when: control_machine.stdout_lines[0] == "false"

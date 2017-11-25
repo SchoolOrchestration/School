@@ -122,7 +122,7 @@
         "status": "active", 
         "tags": [
           "swarm", 
-          "installing"
+          "swarm_manager"
         ], 
         "vcpus": 2, 
         "volume_ids": []
@@ -248,7 +248,7 @@
         "status": "active", 
         "tags": [
           "swarm", 
-          "installing"
+          "swarm_manager"
         ], 
         "vcpus": 2, 
         "volume_ids": []
@@ -374,7 +374,7 @@
         "status": "active", 
         "tags": [
           "swarm", 
-          "installing"
+          "swarm_manager"
         ], 
         "vcpus": 2, 
         "volume_ids": []
@@ -514,7 +514,7 @@
           "do_status": "active", 
           "do_tags": [
             "swarm", 
-            "installing"
+            "swarm_manager"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -640,7 +640,7 @@
           "do_status": "active", 
           "do_tags": [
             "swarm", 
-            "installing"
+            "swarm_manager"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -766,7 +766,7 @@
           "do_status": "active", 
           "do_tags": [
             "swarm", 
-            "installing"
+            "swarm_manager"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -806,14 +806,6 @@
       "vars": {}
     }, 
     "image_ubuntu-16-04-x64": {
-      "hosts": [
-        "46.101.184.5", 
-        "165.227.150.6", 
-        "138.68.69.129"
-      ], 
-      "vars": {}
-    }, 
-    "installing": {
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
@@ -861,6 +853,14 @@
     ], 
     "swarm-subtly-full-drake": [
       "138.68.69.129"
-    ]
+    ], 
+    "swarm_manager": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }
   }
 }

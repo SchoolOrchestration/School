@@ -1,0 +1,27 @@
+- name: Get droplet id
+  uri:
+    url: http://169.254.169.254/metadata/v1/id
+    return_content: yes
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+  register: docker_id
+- name: Add manager tag
+  digital_ocean_tag:
+    api_token: "{{ digital_ocean_token }}"
+    name: "swarm_manager"
+    resource_id: "{{ docker_id.content }}"
+    state: present
+  delegate_to: 127.0.0.1
+- name: Remove worker tag
+  digital_ocean_tag:
+    api_token: "{{ digital_ocean_token }}"
+    name: "swarm_worker"
+    resource_id: "{{ docker_id.content }}"
+    state: absent
+  delegate_to: 127.0.0.1
+  with_items:
+    - swarm
+    - installing
+
+
