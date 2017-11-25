@@ -55,6 +55,7 @@
   - role: geerlingguy.docker
     tags: ['install_docker']
   - role: swarm
+    become: yes
     tags: ['swarm']
   post_tasks:
     - name: Get droplet id

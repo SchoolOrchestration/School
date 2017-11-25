@@ -1,0 +1,8 @@
+# swarm_droplet_image: ..
+
+digital_ocean_token: ...
+# users who you'd like to have ssh access to servers in your swarm
+ssh_users:
+- username: sshusername #use the value of whoami here
+  full_name: Joe Soap
+  github_username: joesoap
