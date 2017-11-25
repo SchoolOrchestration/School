@@ -1,0 +1,23 @@
+version: '3'
+services:
+  logdna:
+    image: gliderlabs/logspout:latest
+    networks:
+      - {{dockerservice_network}}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: syslog+tls://syslog-a.logdna.com:43537
+    environment:
+      - SYSLOG_STRUCTURED_DATA="logdna@48950
+    deploy:
+      mode: global
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+networks:
+  {{dockerservice_network}}:
+    external:
+      name: {{dockerservice_network}}

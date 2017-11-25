@@ -1,0 +1,22 @@
+version: "3.1"
+services:
+  flower:
+    restart: on-failure:10
+    image: {{api_docker_image}}:{{api_docker_tag}}
+    command: celery flower -A vumaapi --address=0.0.0.0 --port=5555 --basic_auth=vumatel:9FB33B5A-EBB1-4973-86B3-BC09182D56D2
+    env_file:
+{% for file in env_files %}
+      - env.{{file}}
+{% endfor %}
+    networks:
+      - frontend
+      - backend
+    links:
+      - rabbitmq
+    ports:
+      - "5555:5555"
+    depends_on:
+      - rabbitmq
+    deploy:
+      placement:
+        constraints: [node.role == manager]
