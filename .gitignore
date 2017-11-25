@@ -1,5 +1,9 @@
 inventory/digital_ocean.ini
 group_vars/all.yml
 .DS_Store
-.vault.key
+
+.idea/
+env
+configs
 *.retry
+.vault.key
