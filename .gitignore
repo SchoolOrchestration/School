@@ -6,3 +6,5 @@ group_vars/all.yml
 env
 configs
 *.retry
+.vault.key
+ansible-digital_ocean.cache

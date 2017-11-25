@@ -11,5 +11,6 @@ RUN pip install -r requirements.txt
 
 COPY ./roles/ /etc/ansible/roles/
 COPY ./group_vars /code/group_vars
+COPY ./includes /code/includes
 COPY ./inventory/digital_ocean.py /etc/ansible/inventory/digital_ocean.py
 COPY ./library/ /etc/ansible/library/
