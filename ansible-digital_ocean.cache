@@ -1,14 +1,866 @@
 {
   "data": {
-    "droplets": []
+    "droplets": [
+      {
+        "backup_ids": [], 
+        "created_at": "2017-11-25T06:16:38Z", 
+        "disk": 40, 
+        "features": [
+          "private_networking"
+        ], 
+        "id": 72391951, 
+        "image": {
+          "created_at": "2017-11-22T00:43:22Z", 
+          "distribution": "Ubuntu", 
+          "id": 29529053, 
+          "min_disk_size": 20, 
+          "name": "16.04.3 x64", 
+          "public": true, 
+          "regions": [
+            "nyc1", 
+            "sfo1", 
+            "nyc2", 
+            "ams2", 
+            "sgp1", 
+            "lon1", 
+            "nyc3", 
+            "ams3", 
+            "fra1", 
+            "tor1", 
+            "sfo2", 
+            "blr1"
+          ], 
+          "size_gigabytes": 0.31, 
+          "slug": "ubuntu-16-04-x64", 
+          "type": "snapshot"
+        }, 
+        "ip_address": "46.101.184.5", 
+        "kernel": null, 
+        "locked": false, 
+        "memory": 2048, 
+        "name": "swarm-duly-dear-chow", 
+        "networks": {
+          "v4": [
+            {
+              "gateway": "10.135.0.1", 
+              "ip_address": "10.135.11.210", 
+              "netmask": "255.255.0.0", 
+              "type": "private"
+            }, 
+            {
+              "gateway": "46.101.128.1", 
+              "ip_address": "46.101.184.5", 
+              "netmask": "255.255.192.0", 
+              "type": "public"
+            }
+          ], 
+          "v6": []
+        }, 
+        "next_backup_window": null, 
+        "private_ip_address": "10.135.11.210", 
+        "region": {
+          "available": true, 
+          "features": [
+            "private_networking", 
+            "backups", 
+            "ipv6", 
+            "metadata", 
+            "install_agent", 
+            "storage"
+          ], 
+          "name": "Frankfurt 1", 
+          "sizes": [
+            "512mb", 
+            "1gb", 
+            "2gb", 
+            "s-1vcpu-3gb", 
+            "c-2", 
+            "4gb", 
+            "c-4", 
+            "8gb", 
+            "c-8", 
+            "16gb", 
+            "m-16gb", 
+            "c-16", 
+            "m-32gb", 
+            "32gb", 
+            "48gb", 
+            "c-32", 
+            "m-64gb", 
+            "64gb", 
+            "m-128gb", 
+            "m-224gb"
+          ], 
+          "slug": "fra1"
+        }, 
+        "size": {
+          "available": true, 
+          "disk": 40, 
+          "memory": 2048, 
+          "price_hourly": 0.02976, 
+          "price_monthly": 20.0, 
+          "regions": [
+            "ams2", 
+            "ams3", 
+            "blr1", 
+            "fra1", 
+            "lon1", 
+            "nyc1", 
+            "nyc2", 
+            "nyc3", 
+            "sfo1", 
+            "sfo2", 
+            "sgp1", 
+            "tor1"
+          ], 
+          "slug": "2gb", 
+          "transfer": 3.0, 
+          "vcpus": 2
+        }, 
+        "size_slug": "2gb", 
+        "snapshot_ids": [], 
+        "status": "active", 
+        "tags": [
+          "swarm", 
+          "installing"
+        ], 
+        "vcpus": 2, 
+        "volume_ids": []
+      }, 
+      {
+        "backup_ids": [], 
+        "created_at": "2017-11-25T06:18:03Z", 
+        "disk": 40, 
+        "features": [
+          "private_networking"
+        ], 
+        "id": 72392032, 
+        "image": {
+          "created_at": "2017-11-22T00:43:22Z", 
+          "distribution": "Ubuntu", 
+          "id": 29529053, 
+          "min_disk_size": 20, 
+          "name": "16.04.3 x64", 
+          "public": true, 
+          "regions": [
+            "nyc1", 
+            "sfo1", 
+            "nyc2", 
+            "ams2", 
+            "sgp1", 
+            "lon1", 
+            "nyc3", 
+            "ams3", 
+            "fra1", 
+            "tor1", 
+            "sfo2", 
+            "blr1"
+          ], 
+          "size_gigabytes": 0.31, 
+          "slug": "ubuntu-16-04-x64", 
+          "type": "snapshot"
+        }, 
+        "ip_address": "165.227.150.6", 
+        "kernel": null, 
+        "locked": false, 
+        "memory": 2048, 
+        "name": "swarm-freely-amused-pony", 
+        "networks": {
+          "v4": [
+            {
+              "gateway": "10.135.0.1", 
+              "ip_address": "10.135.32.121", 
+              "netmask": "255.255.0.0", 
+              "type": "private"
+            }, 
+            {
+              "gateway": "165.227.144.1", 
+              "ip_address": "165.227.150.6", 
+              "netmask": "255.255.240.0", 
+              "type": "public"
+            }
+          ], 
+          "v6": []
+        }, 
+        "next_backup_window": null, 
+        "private_ip_address": "10.135.32.121", 
+        "region": {
+          "available": true, 
+          "features": [
+            "private_networking", 
+            "backups", 
+            "ipv6", 
+            "metadata", 
+            "install_agent", 
+            "storage"
+          ], 
+          "name": "Frankfurt 1", 
+          "sizes": [
+            "512mb", 
+            "1gb", 
+            "2gb", 
+            "s-1vcpu-3gb", 
+            "c-2", 
+            "4gb", 
+            "c-4", 
+            "8gb", 
+            "c-8", 
+            "16gb", 
+            "m-16gb", 
+            "c-16", 
+            "m-32gb", 
+            "32gb", 
+            "48gb", 
+            "c-32", 
+            "m-64gb", 
+            "64gb", 
+            "m-128gb", 
+            "m-224gb"
+          ], 
+          "slug": "fra1"
+        }, 
+        "size": {
+          "available": true, 
+          "disk": 40, 
+          "memory": 2048, 
+          "price_hourly": 0.02976, 
+          "price_monthly": 20.0, 
+          "regions": [
+            "ams2", 
+            "ams3", 
+            "blr1", 
+            "fra1", 
+            "lon1", 
+            "nyc1", 
+            "nyc2", 
+            "nyc3", 
+            "sfo1", 
+            "sfo2", 
+            "sgp1", 
+            "tor1"
+          ], 
+          "slug": "2gb", 
+          "transfer": 3.0, 
+          "vcpus": 2
+        }, 
+        "size_slug": "2gb", 
+        "snapshot_ids": [], 
+        "status": "active", 
+        "tags": [
+          "swarm", 
+          "installing"
+        ], 
+        "vcpus": 2, 
+        "volume_ids": []
+      }, 
+      {
+        "backup_ids": [], 
+        "created_at": "2017-11-25T06:18:44Z", 
+        "disk": 40, 
+        "features": [
+          "private_networking"
+        ], 
+        "id": 72392081, 
+        "image": {
+          "created_at": "2017-11-22T00:43:22Z", 
+          "distribution": "Ubuntu", 
+          "id": 29529053, 
+          "min_disk_size": 20, 
+          "name": "16.04.3 x64", 
+          "public": true, 
+          "regions": [
+            "nyc1", 
+            "sfo1", 
+            "nyc2", 
+            "ams2", 
+            "sgp1", 
+            "lon1", 
+            "nyc3", 
+            "ams3", 
+            "fra1", 
+            "tor1", 
+            "sfo2", 
+            "blr1"
+          ], 
+          "size_gigabytes": 0.31, 
+          "slug": "ubuntu-16-04-x64", 
+          "type": "snapshot"
+        }, 
+        "ip_address": "138.68.69.129", 
+        "kernel": null, 
+        "locked": false, 
+        "memory": 2048, 
+        "name": "swarm-subtly-full-drake", 
+        "networks": {
+          "v4": [
+            {
+              "gateway": "10.135.0.1", 
+              "ip_address": "10.135.46.155", 
+              "netmask": "255.255.0.0", 
+              "type": "private"
+            }, 
+            {
+              "gateway": "138.68.64.1", 
+              "ip_address": "138.68.69.129", 
+              "netmask": "255.255.240.0", 
+              "type": "public"
+            }
+          ], 
+          "v6": []
+        }, 
+        "next_backup_window": null, 
+        "private_ip_address": "10.135.46.155", 
+        "region": {
+          "available": true, 
+          "features": [
+            "private_networking", 
+            "backups", 
+            "ipv6", 
+            "metadata", 
+            "install_agent", 
+            "storage"
+          ], 
+          "name": "Frankfurt 1", 
+          "sizes": [
+            "512mb", 
+            "1gb", 
+            "2gb", 
+            "s-1vcpu-3gb", 
+            "c-2", 
+            "4gb", 
+            "c-4", 
+            "8gb", 
+            "c-8", 
+            "16gb", 
+            "m-16gb", 
+            "c-16", 
+            "m-32gb", 
+            "32gb", 
+            "48gb", 
+            "c-32", 
+            "m-64gb", 
+            "64gb", 
+            "m-128gb", 
+            "m-224gb"
+          ], 
+          "slug": "fra1"
+        }, 
+        "size": {
+          "available": true, 
+          "disk": 40, 
+          "memory": 2048, 
+          "price_hourly": 0.02976, 
+          "price_monthly": 20.0, 
+          "regions": [
+            "ams2", 
+            "ams3", 
+            "blr1", 
+            "fra1", 
+            "lon1", 
+            "nyc1", 
+            "nyc2", 
+            "nyc3", 
+            "sfo1", 
+            "sfo2", 
+            "sgp1", 
+            "tor1"
+          ], 
+          "slug": "2gb", 
+          "transfer": 3.0, 
+          "vcpus": 2
+        }, 
+        "size_slug": "2gb", 
+        "snapshot_ids": [], 
+        "status": "active", 
+        "tags": [
+          "swarm", 
+          "installing"
+        ], 
+        "vcpus": 2, 
+        "volume_ids": []
+      }
+    ]
   }, 
   "inventory": {
+    "72391951": [
+      "46.101.184.5"
+    ], 
+    "72392032": [
+      "165.227.150.6"
+    ], 
+    "72392081": [
+      "138.68.69.129"
+    ], 
     "_meta": {
-      "hostvars": {}
+      "hostvars": {
+        "138.68.69.129": {
+          "do_backup_ids": [], 
+          "do_created_at": "2017-11-25T06:18:44Z", 
+          "do_disk": 40, 
+          "do_features": [
+            "private_networking"
+          ], 
+          "do_id": 72392081, 
+          "do_image": {
+            "created_at": "2017-11-22T00:43:22Z", 
+            "distribution": "Ubuntu", 
+            "id": 29529053, 
+            "min_disk_size": 20, 
+            "name": "16.04.3 x64", 
+            "public": true, 
+            "regions": [
+              "nyc1", 
+              "sfo1", 
+              "nyc2", 
+              "ams2", 
+              "sgp1", 
+              "lon1", 
+              "nyc3", 
+              "ams3", 
+              "fra1", 
+              "tor1", 
+              "sfo2", 
+              "blr1"
+            ], 
+            "size_gigabytes": 0.31, 
+            "slug": "ubuntu-16-04-x64", 
+            "type": "snapshot"
+          }, 
+          "do_ip_address": "138.68.69.129", 
+          "do_kernel": null, 
+          "do_locked": false, 
+          "do_memory": 2048, 
+          "do_name": "swarm-subtly-full-drake", 
+          "do_networks": {
+            "v4": [
+              {
+                "gateway": "10.135.0.1", 
+                "ip_address": "10.135.46.155", 
+                "netmask": "255.255.0.0", 
+                "type": "private"
+              }, 
+              {
+                "gateway": "138.68.64.1", 
+                "ip_address": "138.68.69.129", 
+                "netmask": "255.255.240.0", 
+                "type": "public"
+              }
+            ], 
+            "v6": []
+          }, 
+          "do_next_backup_window": null, 
+          "do_private_ip_address": "10.135.46.155", 
+          "do_region": {
+            "available": true, 
+            "features": [
+              "private_networking", 
+              "backups", 
+              "ipv6", 
+              "metadata", 
+              "install_agent", 
+              "storage"
+            ], 
+            "name": "Frankfurt 1", 
+            "sizes": [
+              "512mb", 
+              "1gb", 
+              "2gb", 
+              "s-1vcpu-3gb", 
+              "c-2", 
+              "4gb", 
+              "c-4", 
+              "8gb", 
+              "c-8", 
+              "16gb", 
+              "m-16gb", 
+              "c-16", 
+              "m-32gb", 
+              "32gb", 
+              "48gb", 
+              "c-32", 
+              "m-64gb", 
+              "64gb", 
+              "m-128gb", 
+              "m-224gb"
+            ], 
+            "slug": "fra1"
+          }, 
+          "do_size": {
+            "available": true, 
+            "disk": 40, 
+            "memory": 2048, 
+            "price_hourly": 0.02976, 
+            "price_monthly": 20.0, 
+            "regions": [
+              "ams2", 
+              "ams3", 
+              "blr1", 
+              "fra1", 
+              "lon1", 
+              "nyc1", 
+              "nyc2", 
+              "nyc3", 
+              "sfo1", 
+              "sfo2", 
+              "sgp1", 
+              "tor1"
+            ], 
+            "slug": "2gb", 
+            "transfer": 3.0, 
+            "vcpus": 2
+          }, 
+          "do_size_slug": "2gb", 
+          "do_snapshot_ids": [], 
+          "do_status": "active", 
+          "do_tags": [
+            "swarm", 
+            "installing"
+          ], 
+          "do_vcpus": 2, 
+          "do_volume_ids": []
+        }, 
+        "165.227.150.6": {
+          "do_backup_ids": [], 
+          "do_created_at": "2017-11-25T06:18:03Z", 
+          "do_disk": 40, 
+          "do_features": [
+            "private_networking"
+          ], 
+          "do_id": 72392032, 
+          "do_image": {
+            "created_at": "2017-11-22T00:43:22Z", 
+            "distribution": "Ubuntu", 
+            "id": 29529053, 
+            "min_disk_size": 20, 
+            "name": "16.04.3 x64", 
+            "public": true, 
+            "regions": [
+              "nyc1", 
+              "sfo1", 
+              "nyc2", 
+              "ams2", 
+              "sgp1", 
+              "lon1", 
+              "nyc3", 
+              "ams3", 
+              "fra1", 
+              "tor1", 
+              "sfo2", 
+              "blr1"
+            ], 
+            "size_gigabytes": 0.31, 
+            "slug": "ubuntu-16-04-x64", 
+            "type": "snapshot"
+          }, 
+          "do_ip_address": "165.227.150.6", 
+          "do_kernel": null, 
+          "do_locked": false, 
+          "do_memory": 2048, 
+          "do_name": "swarm-freely-amused-pony", 
+          "do_networks": {
+            "v4": [
+              {
+                "gateway": "10.135.0.1", 
+                "ip_address": "10.135.32.121", 
+                "netmask": "255.255.0.0", 
+                "type": "private"
+              }, 
+              {
+                "gateway": "165.227.144.1", 
+                "ip_address": "165.227.150.6", 
+                "netmask": "255.255.240.0", 
+                "type": "public"
+              }
+            ], 
+            "v6": []
+          }, 
+          "do_next_backup_window": null, 
+          "do_private_ip_address": "10.135.32.121", 
+          "do_region": {
+            "available": true, 
+            "features": [
+              "private_networking", 
+              "backups", 
+              "ipv6", 
+              "metadata", 
+              "install_agent", 
+              "storage"
+            ], 
+            "name": "Frankfurt 1", 
+            "sizes": [
+              "512mb", 
+              "1gb", 
+              "2gb", 
+              "s-1vcpu-3gb", 
+              "c-2", 
+              "4gb", 
+              "c-4", 
+              "8gb", 
+              "c-8", 
+              "16gb", 
+              "m-16gb", 
+              "c-16", 
+              "m-32gb", 
+              "32gb", 
+              "48gb", 
+              "c-32", 
+              "m-64gb", 
+              "64gb", 
+              "m-128gb", 
+              "m-224gb"
+            ], 
+            "slug": "fra1"
+          }, 
+          "do_size": {
+            "available": true, 
+            "disk": 40, 
+            "memory": 2048, 
+            "price_hourly": 0.02976, 
+            "price_monthly": 20.0, 
+            "regions": [
+              "ams2", 
+              "ams3", 
+              "blr1", 
+              "fra1", 
+              "lon1", 
+              "nyc1", 
+              "nyc2", 
+              "nyc3", 
+              "sfo1", 
+              "sfo2", 
+              "sgp1", 
+              "tor1"
+            ], 
+            "slug": "2gb", 
+            "transfer": 3.0, 
+            "vcpus": 2
+          }, 
+          "do_size_slug": "2gb", 
+          "do_snapshot_ids": [], 
+          "do_status": "active", 
+          "do_tags": [
+            "swarm", 
+            "installing"
+          ], 
+          "do_vcpus": 2, 
+          "do_volume_ids": []
+        }, 
+        "46.101.184.5": {
+          "do_backup_ids": [], 
+          "do_created_at": "2017-11-25T06:16:38Z", 
+          "do_disk": 40, 
+          "do_features": [
+            "private_networking"
+          ], 
+          "do_id": 72391951, 
+          "do_image": {
+            "created_at": "2017-11-22T00:43:22Z", 
+            "distribution": "Ubuntu", 
+            "id": 29529053, 
+            "min_disk_size": 20, 
+            "name": "16.04.3 x64", 
+            "public": true, 
+            "regions": [
+              "nyc1", 
+              "sfo1", 
+              "nyc2", 
+              "ams2", 
+              "sgp1", 
+              "lon1", 
+              "nyc3", 
+              "ams3", 
+              "fra1", 
+              "tor1", 
+              "sfo2", 
+              "blr1"
+            ], 
+            "size_gigabytes": 0.31, 
+            "slug": "ubuntu-16-04-x64", 
+            "type": "snapshot"
+          }, 
+          "do_ip_address": "46.101.184.5", 
+          "do_kernel": null, 
+          "do_locked": false, 
+          "do_memory": 2048, 
+          "do_name": "swarm-duly-dear-chow", 
+          "do_networks": {
+            "v4": [
+              {
+                "gateway": "10.135.0.1", 
+                "ip_address": "10.135.11.210", 
+                "netmask": "255.255.0.0", 
+                "type": "private"
+              }, 
+              {
+                "gateway": "46.101.128.1", 
+                "ip_address": "46.101.184.5", 
+                "netmask": "255.255.192.0", 
+                "type": "public"
+              }
+            ], 
+            "v6": []
+          }, 
+          "do_next_backup_window": null, 
+          "do_private_ip_address": "10.135.11.210", 
+          "do_region": {
+            "available": true, 
+            "features": [
+              "private_networking", 
+              "backups", 
+              "ipv6", 
+              "metadata", 
+              "install_agent", 
+              "storage"
+            ], 
+            "name": "Frankfurt 1", 
+            "sizes": [
+              "512mb", 
+              "1gb", 
+              "2gb", 
+              "s-1vcpu-3gb", 
+              "c-2", 
+              "4gb", 
+              "c-4", 
+              "8gb", 
+              "c-8", 
+              "16gb", 
+              "m-16gb", 
+              "c-16", 
+              "m-32gb", 
+              "32gb", 
+              "48gb", 
+              "c-32", 
+              "m-64gb", 
+              "64gb", 
+              "m-128gb", 
+              "m-224gb"
+            ], 
+            "slug": "fra1"
+          }, 
+          "do_size": {
+            "available": true, 
+            "disk": 40, 
+            "memory": 2048, 
+            "price_hourly": 0.02976, 
+            "price_monthly": 20.0, 
+            "regions": [
+              "ams2", 
+              "ams3", 
+              "blr1", 
+              "fra1", 
+              "lon1", 
+              "nyc1", 
+              "nyc2", 
+              "nyc3", 
+              "sfo1", 
+              "sfo2", 
+              "sgp1", 
+              "tor1"
+            ], 
+            "slug": "2gb", 
+            "transfer": 3.0, 
+            "vcpus": 2
+          }, 
+          "do_size_slug": "2gb", 
+          "do_snapshot_ids": [], 
+          "do_status": "active", 
+          "do_tags": [
+            "swarm", 
+            "installing"
+          ], 
+          "do_vcpus": 2, 
+          "do_volume_ids": []
+        }
+      }
     }, 
     "all": {
-      "hosts": [], 
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
       "vars": {}
-    }
+    }, 
+    "distro_Ubuntu": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "image_16.04.3_x64": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "image_29529053": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "image_ubuntu-16-04-x64": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "installing": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "region_fra1": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "size_2gb": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "status_active": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "swarm": {
+      "hosts": [
+        "46.101.184.5", 
+        "165.227.150.6", 
+        "138.68.69.129"
+      ], 
+      "vars": {}
+    }, 
+    "swarm-duly-dear-chow": [
+      "46.101.184.5"
+    ], 
+    "swarm-freely-amused-pony": [
+      "165.227.150.6"
+    ], 
+    "swarm-subtly-full-drake": [
+      "138.68.69.129"
+    ]
   }
 }
