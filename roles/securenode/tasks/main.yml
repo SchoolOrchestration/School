@@ -5,8 +5,8 @@
 
 - include: python.yml
 
-- include: users.yml
+- include: users.yml tags=users
 
-- include: harden_ssh.yml
+- include: harden_ssh.yml tags=harden_ssh
 
-- include: firewall.yml
+- include: firewall.yml tags=firewall

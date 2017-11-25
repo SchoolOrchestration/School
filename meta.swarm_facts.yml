@@ -1,0 +1,16 @@
+---
+- hosts: swarm_manager
+  tasks:
+  - name: docker info
+    command: "docker info --format '{%raw%}{{json .Swarm}}'{%endraw%}"
+    become: yes
+    register: swarm_info
+  - debug: var=swarm_info
+  - name: Set some swarm facts
+    set_fact:
+      total_nodes: "{{swarm_info.stdout.Nodes}}"
+      # manager_nodes: "{{swarm_info.stdout.Managers}}"
+  - debug: var=item
+    with_items:
+      - "{{total_nodes}}"
+      - "{{manager_nodes}}"

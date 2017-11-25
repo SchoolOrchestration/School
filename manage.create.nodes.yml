@@ -1,0 +1,51 @@
+---
+# running this inside droplet causes issues with ssh key
+# need to map ssh key from host to container
+
+- name: Create droplet
+  hosts:
+   - localhost
+  vars_prompt:
+  # - name: swarm_name
+  #   prompt: What is the name of your swarm
+  #   private: no
+  #   default: production
+    - name: node_count
+      prompt: 'How many nodes to add'
+      private: no
+      default: 3
+  vars:
+    swarm_droplet_size: 2gb
+    pip_install_packages:
+      - name: docker
+  pre_tasks:
+    - name: Create nodes
+      include_role:
+        name: swarmnode
+      with_sequence: count="{{ node_count | int }}"
+
+- name: Refresh inventory
+  hosts:
+    - localhost
+  tasks:
+    - meta: refresh_inventory
+
+- name: Secure the droplet
+  hosts:
+    - installing
+  gather_facts: false
+  pre_tasks:
+  - name: install python 2
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  roles:
+    - role: securenode
+      ansible_user: root
+      users: "{{ ssh_users }}"
+      server_type: "swarm"
+    - role: domonitoring
+      tags: ['monitoring']
+      become: yes
+    - role: geerlingguy.pip
+      tags: ['install_docker']
+      become: yes
+

@@ -9,7 +9,7 @@ A collection of Ansible playbooks for orchestrating and managing a Swarm or Kube
 
 Setup you ENvironment
 ```bash
-docker-compose run --rm school ansible-playbook bootstrap.yml 
+docker-compose run --rm school ansible-playbook bootstrap.yml
 ```
 This step will setup your control center for your swarm.
 
@@ -42,7 +42,22 @@ sh ./school.sh scaffold
 * Create a swarm node snapshot
 
 
-## Maintaining your swarm:
+## Managing your swarm:
+
+### Cleanly remove a node from the swarm:
+
+```
+# prod
+sh ./school.sh remove --hostname=swarm-subtly-full-drake --ip=1.2.3.4 --with-delete
+
+# dev
+
+# remove the node from the swarm:
+docker-compose run --rm school ansible-playbook manage.remove.node.yml -i inventory/digital_ocean.py -e ansible_user=$(whoami)
+
+# delete the node
+docker-compose run --rm school ansible-playbook manage.delete.node.yml -i inventory/digital_ocean.py -e ansible_user=$(whoami)
+```
 
 Maintenance tasks:
 

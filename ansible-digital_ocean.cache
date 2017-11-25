@@ -248,19 +248,19 @@
         "status": "active", 
         "tags": [
           "swarm", 
-          "swarm_manager"
+          "swarm_worker"
         ], 
         "vcpus": 2, 
         "volume_ids": []
       }, 
       {
         "backup_ids": [], 
-        "created_at": "2017-11-25T06:18:44Z", 
+        "created_at": "2017-11-25T10:53:11Z", 
         "disk": 40, 
         "features": [
           "private_networking"
         ], 
-        "id": 72392081, 
+        "id": 72413912, 
         "image": {
           "created_at": "2017-11-22T00:43:22Z", 
           "distribution": "Ubuntu", 
@@ -286,22 +286,22 @@
           "slug": "ubuntu-16-04-x64", 
           "type": "snapshot"
         }, 
-        "ip_address": "138.68.69.129", 
+        "ip_address": "207.154.249.119", 
         "kernel": null, 
         "locked": false, 
         "memory": 2048, 
-        "name": "swarm-subtly-full-drake", 
+        "name": "swarm-humbly-nearby-bream", 
         "networks": {
           "v4": [
             {
               "gateway": "10.135.0.1", 
-              "ip_address": "10.135.46.155", 
+              "ip_address": "10.135.30.179", 
               "netmask": "255.255.0.0", 
               "type": "private"
             }, 
             {
-              "gateway": "138.68.64.1", 
-              "ip_address": "138.68.69.129", 
+              "gateway": "207.154.240.1", 
+              "ip_address": "207.154.249.119", 
               "netmask": "255.255.240.0", 
               "type": "public"
             }
@@ -309,7 +309,132 @@
           "v6": []
         }, 
         "next_backup_window": null, 
-        "private_ip_address": "10.135.46.155", 
+        "private_ip_address": "10.135.30.179", 
+        "region": {
+          "available": true, 
+          "features": [
+            "private_networking", 
+            "backups", 
+            "ipv6", 
+            "metadata", 
+            "install_agent", 
+            "storage"
+          ], 
+          "name": "Frankfurt 1", 
+          "sizes": [
+            "512mb", 
+            "1gb", 
+            "2gb", 
+            "s-1vcpu-3gb", 
+            "c-2", 
+            "4gb", 
+            "c-4", 
+            "8gb", 
+            "c-8", 
+            "16gb", 
+            "m-16gb", 
+            "c-16", 
+            "m-32gb", 
+            "32gb", 
+            "48gb", 
+            "c-32", 
+            "m-64gb", 
+            "64gb", 
+            "m-128gb", 
+            "m-224gb"
+          ], 
+          "slug": "fra1"
+        }, 
+        "size": {
+          "available": true, 
+          "disk": 40, 
+          "memory": 2048, 
+          "price_hourly": 0.02976, 
+          "price_monthly": 20.0, 
+          "regions": [
+            "ams2", 
+            "ams3", 
+            "blr1", 
+            "fra1", 
+            "lon1", 
+            "nyc1", 
+            "nyc2", 
+            "nyc3", 
+            "sfo1", 
+            "sfo2", 
+            "sgp1", 
+            "tor1"
+          ], 
+          "slug": "2gb", 
+          "transfer": 3.0, 
+          "vcpus": 2
+        }, 
+        "size_slug": "2gb", 
+        "snapshot_ids": [], 
+        "status": "active", 
+        "tags": [
+          "swarm"
+        ], 
+        "vcpus": 2, 
+        "volume_ids": []
+      }, 
+      {
+        "backup_ids": [], 
+        "created_at": "2017-11-25T12:58:22Z", 
+        "disk": 40, 
+        "features": [
+          "private_networking"
+        ], 
+        "id": 72425683, 
+        "image": {
+          "created_at": "2017-11-22T00:43:22Z", 
+          "distribution": "Ubuntu", 
+          "id": 29529053, 
+          "min_disk_size": 20, 
+          "name": "16.04.3 x64", 
+          "public": true, 
+          "regions": [
+            "nyc1", 
+            "sfo1", 
+            "nyc2", 
+            "ams2", 
+            "sgp1", 
+            "lon1", 
+            "nyc3", 
+            "ams3", 
+            "fra1", 
+            "tor1", 
+            "sfo2", 
+            "blr1"
+          ], 
+          "size_gigabytes": 0.31, 
+          "slug": "ubuntu-16-04-x64", 
+          "type": "snapshot"
+        }, 
+        "ip_address": "159.89.7.219", 
+        "kernel": null, 
+        "locked": false, 
+        "memory": 2048, 
+        "name": "swarm-hardly-liked-monkey", 
+        "networks": {
+          "v4": [
+            {
+              "gateway": "10.135.0.1", 
+              "ip_address": "10.135.33.45", 
+              "netmask": "255.255.0.0", 
+              "type": "private"
+            }, 
+            {
+              "gateway": "159.89.0.1", 
+              "ip_address": "159.89.7.219", 
+              "netmask": "255.255.240.0", 
+              "type": "public"
+            }
+          ], 
+          "v6": []
+        }, 
+        "next_backup_window": null, 
+        "private_ip_address": "10.135.33.45", 
         "region": {
           "available": true, 
           "features": [
@@ -374,7 +499,7 @@
         "status": "active", 
         "tags": [
           "swarm", 
-          "swarm_manager"
+          "installing"
         ], 
         "vcpus": 2, 
         "volume_ids": []
@@ -388,19 +513,22 @@
     "72392032": [
       "165.227.150.6"
     ], 
-    "72392081": [
-      "138.68.69.129"
+    "72413912": [
+      "207.154.249.119"
+    ], 
+    "72425683": [
+      "159.89.7.219"
     ], 
     "_meta": {
       "hostvars": {
-        "138.68.69.129": {
+        "159.89.7.219": {
           "do_backup_ids": [], 
-          "do_created_at": "2017-11-25T06:18:44Z", 
+          "do_created_at": "2017-11-25T12:58:22Z", 
           "do_disk": 40, 
           "do_features": [
             "private_networking"
           ], 
-          "do_id": 72392081, 
+          "do_id": 72425683, 
           "do_image": {
             "created_at": "2017-11-22T00:43:22Z", 
             "distribution": "Ubuntu", 
@@ -426,22 +554,22 @@
             "slug": "ubuntu-16-04-x64", 
             "type": "snapshot"
           }, 
-          "do_ip_address": "138.68.69.129", 
+          "do_ip_address": "159.89.7.219", 
           "do_kernel": null, 
           "do_locked": false, 
           "do_memory": 2048, 
-          "do_name": "swarm-subtly-full-drake", 
+          "do_name": "swarm-hardly-liked-monkey", 
           "do_networks": {
             "v4": [
               {
                 "gateway": "10.135.0.1", 
-                "ip_address": "10.135.46.155", 
+                "ip_address": "10.135.33.45", 
                 "netmask": "255.255.0.0", 
                 "type": "private"
               }, 
               {
-                "gateway": "138.68.64.1", 
-                "ip_address": "138.68.69.129", 
+                "gateway": "159.89.0.1", 
+                "ip_address": "159.89.7.219", 
                 "netmask": "255.255.240.0", 
                 "type": "public"
               }
@@ -449,7 +577,7 @@
             "v6": []
           }, 
           "do_next_backup_window": null, 
-          "do_private_ip_address": "10.135.46.155", 
+          "do_private_ip_address": "10.135.33.45", 
           "do_region": {
             "available": true, 
             "features": [
@@ -514,7 +642,7 @@
           "do_status": "active", 
           "do_tags": [
             "swarm", 
-            "swarm_manager"
+            "installing"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -640,7 +768,132 @@
           "do_status": "active", 
           "do_tags": [
             "swarm", 
-            "swarm_manager"
+            "swarm_worker"
+          ], 
+          "do_vcpus": 2, 
+          "do_volume_ids": []
+        }, 
+        "207.154.249.119": {
+          "do_backup_ids": [], 
+          "do_created_at": "2017-11-25T10:53:11Z", 
+          "do_disk": 40, 
+          "do_features": [
+            "private_networking"
+          ], 
+          "do_id": 72413912, 
+          "do_image": {
+            "created_at": "2017-11-22T00:43:22Z", 
+            "distribution": "Ubuntu", 
+            "id": 29529053, 
+            "min_disk_size": 20, 
+            "name": "16.04.3 x64", 
+            "public": true, 
+            "regions": [
+              "nyc1", 
+              "sfo1", 
+              "nyc2", 
+              "ams2", 
+              "sgp1", 
+              "lon1", 
+              "nyc3", 
+              "ams3", 
+              "fra1", 
+              "tor1", 
+              "sfo2", 
+              "blr1"
+            ], 
+            "size_gigabytes": 0.31, 
+            "slug": "ubuntu-16-04-x64", 
+            "type": "snapshot"
+          }, 
+          "do_ip_address": "207.154.249.119", 
+          "do_kernel": null, 
+          "do_locked": false, 
+          "do_memory": 2048, 
+          "do_name": "swarm-humbly-nearby-bream", 
+          "do_networks": {
+            "v4": [
+              {
+                "gateway": "10.135.0.1", 
+                "ip_address": "10.135.30.179", 
+                "netmask": "255.255.0.0", 
+                "type": "private"
+              }, 
+              {
+                "gateway": "207.154.240.1", 
+                "ip_address": "207.154.249.119", 
+                "netmask": "255.255.240.0", 
+                "type": "public"
+              }
+            ], 
+            "v6": []
+          }, 
+          "do_next_backup_window": null, 
+          "do_private_ip_address": "10.135.30.179", 
+          "do_region": {
+            "available": true, 
+            "features": [
+              "private_networking", 
+              "backups", 
+              "ipv6", 
+              "metadata", 
+              "install_agent", 
+              "storage"
+            ], 
+            "name": "Frankfurt 1", 
+            "sizes": [
+              "512mb", 
+              "1gb", 
+              "2gb", 
+              "s-1vcpu-3gb", 
+              "c-2", 
+              "4gb", 
+              "c-4", 
+              "8gb", 
+              "c-8", 
+              "16gb", 
+              "m-16gb", 
+              "c-16", 
+              "m-32gb", 
+              "32gb", 
+              "48gb", 
+              "c-32", 
+              "m-64gb", 
+              "64gb", 
+              "m-128gb", 
+              "m-224gb"
+            ], 
+            "slug": "fra1"
+          }, 
+          "do_size": {
+            "available": true, 
+            "disk": 40, 
+            "memory": 2048, 
+            "price_hourly": 0.02976, 
+            "price_monthly": 20.0, 
+            "regions": [
+              "ams2", 
+              "ams3", 
+              "blr1", 
+              "fra1", 
+              "lon1", 
+              "nyc1", 
+              "nyc2", 
+              "nyc3", 
+              "sfo1", 
+              "sfo2", 
+              "sgp1", 
+              "tor1"
+            ], 
+            "slug": "2gb", 
+            "transfer": 3.0, 
+            "vcpus": 2
+          }, 
+          "do_size_slug": "2gb", 
+          "do_snapshot_ids": [], 
+          "do_status": "active", 
+          "do_tags": [
+            "swarm"
           ], 
           "do_vcpus": 2, 
           "do_volume_ids": []
@@ -777,7 +1030,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -785,7 +1039,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -793,7 +1048,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -801,7 +1057,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -809,7 +1066,14 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
+      ], 
+      "vars": {}
+    }, 
+    "installing": {
+      "hosts": [
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -817,7 +1081,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -825,7 +1090,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -833,7 +1099,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -841,7 +1108,8 @@
       "hosts": [
         "46.101.184.5", 
         "165.227.150.6", 
-        "138.68.69.129"
+        "207.154.249.119", 
+        "159.89.7.219"
       ], 
       "vars": {}
     }, 
@@ -851,14 +1119,21 @@
     "swarm-freely-amused-pony": [
       "165.227.150.6"
     ], 
-    "swarm-subtly-full-drake": [
-      "138.68.69.129"
+    "swarm-hardly-liked-monkey": [
+      "159.89.7.219"
+    ], 
+    "swarm-humbly-nearby-bream": [
+      "207.154.249.119"
     ], 
     "swarm_manager": {
       "hosts": [
-        "46.101.184.5", 
-        "165.227.150.6", 
-        "138.68.69.129"
+        "46.101.184.5"
+      ], 
+      "vars": {}
+    }, 
+    "swarm_worker": {
+      "hosts": [
+        "165.227.150.6"
       ], 
       "vars": {}
     }

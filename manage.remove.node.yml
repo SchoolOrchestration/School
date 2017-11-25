@@ -1,0 +1,45 @@
+- name: Prepare the node to be removed
+  hosts: swarm_manager
+  vars_prompt:
+  - name: server_ip
+    prompt: What is the IP of the server to delete
+    private: no
+  - name: server_hostname
+    prompt: What is the hostname (e.g swarm-subtly-full-drake) of the server to delete
+    private: no
+  tasks:
+    - debug: msg="Going to remove node {{server_ip}} {{server_hostname}} from the swarm"
+    - name: Prepare to leave
+      command: "{{item}}"
+      with_items:
+        - "docker node update --availability drain {{server_hostname}}"
+        - "docker node demote {{server_hostname}}"
+      run_once: true
+      become: true
+    - name: Tag host for deletiong
+      add_host:
+        name: "{{ server_ip }}"
+        groups: delete
+
+
+- name: Leave the swarm
+  hosts: "delete"
+  tasks:
+  - name: Leave the swarm
+    command: docker swarm leave
+    become: yes
+
+- name: Remove the node from the swarm
+  hosts: swarm_manager
+  vars:
+    confirm_delete_droplet: yes
+  tasks:
+  - name: Remove the node
+    command: "docker node rm {{server_hostname}}"
+    run_once: true
+    become: yes
+
+
+#   - name: Delete the droplet
+#     debug:
+#       msg: todo
