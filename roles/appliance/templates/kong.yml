@@ -4,7 +4,7 @@ services:
     image: kong:0.11.1-alpine
     environment:
       - KONG_DATABASE=postgres
-      - KONG_PG_HOST={{postgres_host}}
+      - KONG_PG_HOST={{postgres_db_host}}
       - KONG_PG_PASSWORD={{kong_db_password}}
     deploy:
       mode: global
