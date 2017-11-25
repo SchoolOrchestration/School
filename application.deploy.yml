@@ -1,0 +1,11 @@
+- hosts:
+    - swarm
+  vars:
+    - dockerservice_network: school_school
+  # pre_tasks:
+  #   - name: create network
+  #     command: 'docker network create --driver=overlay --scope=swarm {{dockerservice_network}}'
+  roles:
+      appliance_name: kong
+      appliance_command: kong migration up
+      tags: [appliance, kong]

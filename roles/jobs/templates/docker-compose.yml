@@ -1,0 +1,25 @@
+version: "3"
+services:
+  {{ job_name }}:
+    image: {{job_image}}
+    {% if job_environment %}
+    environment:
+    {% for env in job_environment %}
+      - {{env.name}}={{env.value}}
+    {% endfor %}
+    {% endif %}
+    {% if job_command %}
+    command: {{job_command}}
+    {% endif %}
+    deploy:
+      replicas: {{job_replicas}}
+      {% if job_repeat %}
+      restart_policy:
+        delay: {{job_repeat}}
+      {% endif}
+    networks:
+      - {{dockerservice_network}}
+networks:
+  {{dockerservice_network}}:
+    external:
+      name: {{dockerservice_network}}

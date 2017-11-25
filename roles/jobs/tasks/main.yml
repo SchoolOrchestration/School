@@ -1,0 +1,21 @@
+---
+- name: Create directories
+  file:
+    path: /school/stacks/
+    state: directory
+- name: Running Job Container
+  template:
+    src: "{{job_name}}.yml"
+    dest: /school/stacks/docker-compose.{{job_name}}.job.yml
+- name: Log into DockerHub so that the private repo can be pulled
+  docker_login:
+    username: "{{docker_username}}"
+    password: "{{docker_password}}"
+    email: "{{docker_email}}"
+    reauthorize: no
+- name: Deploy
+  command: 'docker stack deploy -c /school/stacks/docker-compose.{{job_name}}.yml {{job_name }} --with-registry-auth'
+  run_once: true
+- name: Log out of DockerHub
+  docker_login:
+    state: absent
