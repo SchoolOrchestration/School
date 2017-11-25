@@ -1,10 +1,11 @@
 # swarm_droplet_image: ..
 
+digital_ocean_token: "{{do_token}}"
 # users who you'd like to have ssh access to servers in your swarm
-# ssh_users:
-# - username: ..
-#   full_name: ..
-#   github_username: ..
+ ssh_users:
+ - username: "{{remote_user}}"
+   full_name: "{{full_name}}"
+   github_username: "{{github_user}}"
 
 # postgres_db_host:
 # swarm_ip:
