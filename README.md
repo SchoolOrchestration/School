@@ -7,6 +7,10 @@ A collection of Ansible playbooks for orchestrating and managing a Swarm or Kube
 
 ### Step 1. Bootstrap your environment
 
+Setup you ENvironment
+```bash
+docker-compose run --rm school ansible-playbook bootstrap.yml 
+```
 This step will setup your control center for your swarm.
 
 ### Step 2. Create your swarm
