@@ -6,6 +6,7 @@
   #   - name: create network
   #     command: 'docker network create --driver=overlay --scope=swarm {{dockerservice_network}}'
   roles:
+    - role: job
       job_name: kongmigration
       job_image: kong:0.11.1-alpine
       job_command: kong migration up
@@ -16,5 +17,5 @@
           value: '{{postgres_db_host}}'
       job_replicas: 1
       job_repeat: Never
-      tags: [job, kong]
+      tags: [job, kongmigration]
 
