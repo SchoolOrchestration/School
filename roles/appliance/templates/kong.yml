@@ -1,0 +1,22 @@
+version: "3"
+services:
+  kong:
+    image: kong:0.11.1-alpine
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST={{postgres_host}}
+      - KONG_PG_PASSWORD={{kong_db_password}}
+    deploy:
+      mode: global
+      update_config:
+        parallelism: 1
+        delay: 60s
+    networks:
+      - {{dockerservice_network}}
+    ports:
+      - '80:8000'
+
+networks:
+  {{dockerservice_network}}:
+    external:
+      name: {{dockerservice_network}}

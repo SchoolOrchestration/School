@@ -1,0 +1,26 @@
+version: "3.1"
+services:
+  rabbitmq:
+    image: rabbitmq:3.6-management
+    networks:
+      - {{dockerservice_network}}
+    secrets:
+      - RABBITMQ_DEFAULT_USER
+      - RABBITMQ_DEFAULT_PASS
+    environment:
+      - RABBITMQ_DEFAULT_USER_FILE=/run/secrets/RABBITMQ_DEFAULT_USER
+      - RABBITMQ_DEFAULT_PASS_FILE=/run/secrets/RABBITMQ_DEFAULT_PASS
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+secrets:
+  RABBITMQ_DEFAULT_USER:
+    external: true
+  RABBITMQ_DEFAULT_PASS:
+    external: true
+
+networks:
+  {{dockerservice_network}}:
+    external:
+      name: {{dockerservice_network}}
