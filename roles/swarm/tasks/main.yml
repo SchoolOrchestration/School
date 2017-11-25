@@ -1,5 +1,5 @@
 ---
-- name:
+- name: 'Set the swarm group'
   set_fact:
     swarm_group: "swarm"
     # swarm_group: "server_swarm_{{ swarm_name }}"
