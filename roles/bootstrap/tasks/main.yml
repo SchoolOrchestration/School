@@ -11,6 +11,7 @@
     - digital_ocean.ini
     - secrets.yml
     - settings.yml
+    - start.sh
   delegate_to: localhost
 - name: create school compose file
   template:

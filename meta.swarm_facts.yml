@@ -1,16 +1,22 @@
 ---
-- hosts: swarm_manager
+- hosts: server_swarm_manager
   tasks:
   - name: docker info
     command: "docker info --format '{%raw%}{{json .Swarm.Nodes}}'{%endraw%}"
     become: yes
+    run_once: yes
     register: swarm_size
   - name: docker info
     command: "docker info --format '{%raw%}{{json .Swarm.Managers}}'{%endraw%}"
     become: yes
+    run_once: yes
     register: swarm_managers
-  - debug:
-      var: item
+  - name: Swarm stats
+    debug:
+      msg: "{{item.msg}}: {{item.var}}"
+    run_once: yes
     with_items:
-      - "{{swarm_size.stdout}}"
-      - "{{swarm_managers.stdout}}"
+      - msg: "Total swarm size:"
+        var: "{{swarm_size.stdout}}"
+      - msg: "Managers:"
+        var: "{{swarm_managers.stdout}}"

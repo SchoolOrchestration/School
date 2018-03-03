@@ -1,2 +1,3 @@
 ---
 # defaults file for appliance
+redis_version: 4.0.5-alpine

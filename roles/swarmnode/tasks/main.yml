@@ -15,11 +15,14 @@
       Authorization: "Bearer {{digital_ocean_token}}"
   register: ssh_keys
 
+- debug: msg="{{ ssh_keys|json_query('json.ssh_keys[*].id') }}"
+
 - name: Create Swarm Nodes
   digital_ocean:
     api_token: "{{ digital_ocean_token }}"
     command: droplet
     ssh_key_ids: "{{ ssh_keys|json_query('json.ssh_keys[*].id') }}"
+    # ssh_key_ids: ssh_keys[0].id
     name: "swarm-{{ petname.stdout }}"
     size_id: "{{ swarm_droplet_size }}"
     region_id: "{{ swarm_region }}"
@@ -32,14 +35,51 @@
   register: swarm_drop
   delegate_to: 127.0.0.1
 
-- name: Tag as a swarm server
-  digital_ocean_tag:
-    api_token: "{{ digital_ocean_token }}"
-    name: "{{item}}"
-    resource_id: "{{ swarm_drop.droplet.id }}"
-    state: present
-  delegate_to: 127.0.0.1
+- name: Create tag
+  uri:
+    url: https://api.digitalocean.com/v2/tags
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      name: "{{item}}"
+    body_format: json
+    status_code: 201,404
   with_items:
     - swarm
     - installing
+    - "swarm_{{swarm_name|default('unknown')}}"
+  delegate_to: localhost
+
+- name: Create tag resources
+  uri:
+    url: https://api.digitalocean.com/v2/tags/{{item}}/resources
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      resources:
+        - resource_id: "{{swarm_drop.droplet.id}}"
+          resource_type: "droplet"
+    body_format: json
+    status_code: 204
+  with_items:
+    - swarm
+    - installing
+  delegate_to: localhost
+
+
+# tags are broken
+# - name: Tag as a swarm server
+#   digital_ocean_tag:
+#     api_token: "{{ digital_ocean_token }}"
+#     name: "{{item}}"
+#     resource_id: "{{ swarm_drop.droplet.id|string }}"
+#     state: present
+#   delegate_to: 127.0.0.1
+#   with_items:
+#     - swarm
+#     - installing
 

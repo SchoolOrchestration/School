@@ -6,16 +6,20 @@
   hosts:
    - localhost
   vars_prompt:
-  # - name: swarm_name
-  #   prompt: What is the name of your swarm
+  - name: swarm_name
+    prompt: What is the name of your swarm
+    private: no
+    default: production
+  - name: swarm_droplet_size
+    prompt: How much ram do you want?
+    private: no
+    default: 2gb
+  # - name: node_count
+  #   prompt: 'How many nodes should be in your swarm'
   #   private: no
-  #   default: production
-    - name: node_count
-      prompt: 'How many nodes should be in your swarm'
-      private: no
-      default: 3
+  #   default: 3
   vars:
-    swarm_droplet_size: 2gb
+    node_count: 1
     pip_install_packages:
       - name: docker
   pre_tasks:
@@ -23,16 +27,16 @@
       include_role:
         name: swarmnode
       with_sequence: count="{{ node_count | int }}"
+      tags: ['provision']
 
-- name: Refresh inventory
-  hosts:
-    - localhost
-  tasks:
-    - meta: refresh_inventory
+# - name: Refresh inventory
+#   hosts:
+#     - all
+#   tasks:
+#     - meta: refresh_inventory
 
 - name: Secure the droplet
-  hosts:
-    - installing
+  hosts: installing
   gather_facts: false
   pre_tasks:
   - name: install python 2
@@ -47,17 +51,8 @@
       become: yes
 
 - name: Setup the droplet
-  hosts:
-    - installing
-  roles:
-  - role: geerlingguy.pip
-    tags: ['install_docker']
-  - role: geerlingguy.docker
-    tags: ['install_docker']
-  - role: swarm
-    become: yes
-    tags: ['swarm']
-  post_tasks:
+  hosts: installing
+  pre_tasks:
     - name: Get droplet id
       uri:
         url: http://169.254.169.254/metadata/v1/id
@@ -66,13 +61,30 @@
           Content-Type: "application/json"
           Authorization: "Bearer {{digital_ocean_token}}"
       register: docker_id
-
+      tags: ['swarm', 'cleanup']
+  roles:
+  - role: geerlingguy.pip
+    tags: ['install_docker']
+  - role: geerlingguy.docker
+    tags: ['install_docker']
+  - role: swarm
+    become: yes
+    tags: ['swarm']
+  - role: dosnapshot
+    dosnapshot_droplet_id: "{{ docker_id.content|string }}"
+    dosnapshot_name: "swarm_snapshot"
+    tags: ['swarm', 'cleanup']
+    delegate_to: 127.0.0.1
+  post_tasks:
     - debug: var=docker_id
+      tags: ['swarm', 'cleanup']
 
     - name: Remove installing tag
       digital_ocean_tag:
         api_token: "{{ digital_ocean_token }}"
         name: "installing"
-        resource_id: "{{ docker_id.content }}"
+        resource_id: "{{ docker_id.content|string }}"
         state: absent
+      tags: ['swarm', 'cleanup']
       delegate_to: 127.0.0.1
+

@@ -1,0 +1,15 @@
+---
+- name: Create droplet
+  uri:
+    url: "https://api.digitalocean.com/v2/droplets/{{dosnapshot_droplet_id}}/actions"
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      type: snapshot
+      name: "{{dosnapshot_name}}"
+    body_format: json
+    status_code: 201
+  register: snapshot_result
+  delegate_to: localhost

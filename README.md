@@ -7,29 +7,36 @@ A collection of Ansible playbooks for orchestrating and managing a Swarm or Kube
 
 ### Step 1. Bootstrap your environment
 
-Setup you ENvironment
+Setup you Environment
 ```bash
-docker-compose run --rm school ansible-playbook bootstrap.yml
+#prod:
+docker run -it --rm -v $(pwd):/code/configs schoolorchestration/school ansible-playbook bootstrap.yml
 ```
+
 This step will setup your control center for your swarm.
 
-```
-# prod
-.. long docker run command goes here ..
-
-# dev
-docker-compose run --rm school ansible-playbook bootstrap.yml
-```
-
-### Step 2. Create your swarm
+Now, let's build our first node:
 
 ```
-# prod
-sh ./school.sh init
-
-# dev
-docker-compose run --rm school ansible-playbook provision.swarm.node.yml -i inventory/digital_ocean.py
+sh ./prepare.sh
 ```
+
+This will ask you some questions, then go about launching a droplet in DigitalOcean.
+It will secure the droplet and then create a snapshot. This snapshot will form the basis of new nodes which we join to the swarm
+
+You should be able to ssh into this droplet without specifying a user. e.g.: `ssh 1.2.3.4`
+
+----
+### it works up to here
+
+Now that we have our base snapshot, let's go ahead and make our swarm
+
+```
+sh ./swarm.sh
+```
+
+This will ask you some questions about the size of your swarm and stuff, and then go about creating some droplets.
+
 
 ### Step 3. Start running some services in your swarm
 
@@ -43,6 +50,17 @@ sh ./school.sh scaffold
 
 
 ## Managing your swarm:
+
+### Add a node:
+
+```
+# prod (TBD)
+# add three nodes:
+sh ./school.sh add --count=3
+
+# dev
+docker-compose run --rm school sh /code/scripts/addnodes.sh
+```
 
 ### Cleanly remove a node from the swarm:
 

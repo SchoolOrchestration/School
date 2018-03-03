@@ -1,0 +1,29 @@
+---
+- name: Create tag
+  uri:
+    url: https://api.digitalocean.com/v2/tags
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      name: test2
+    body_format: json
+    status_code: 201,404
+  delegate_to: localhost
+
+- name: Create tag resources
+  uri:
+    url: https://api.digitalocean.com/v2/tags/{{tag}}/resources
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      resources:
+        - resource_id: "{{dotag_resource}}"
+          resource_type: "droplet"
+    body_format: json
+    status_code: 204
+  with_items: "{{dotag_tags}}"
+  delegate_to: localhost
