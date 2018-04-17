@@ -1,0 +1,9 @@
+docker run --rm -it \
+    -v ~/.ssh:/root/.ssh \
+    -v $(pwd)/settings.yml:/code/ansible/group_vars/all/settings.yml \
+    -v $(pwd)/secrets.yml:/code/ansible/group_vars/all/secrets.yml \
+    -v $(pwd)/digital_ocean.ini:/etc/ansible/inventory/digital_ocean.ini \
+    -e "ANSIBLE_HOST_KEY_CHECKING=False" \
+    -e "ANSIBLE_LIBRARY=/etc/ansible/library" \
+    schoolorchestration/school:latest \
+    ansible-playbook provision.swarm.yml -i /etc/ansible/inventory/digital_ocean.py

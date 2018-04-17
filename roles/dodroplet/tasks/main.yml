@@ -1,0 +1,36 @@
+---
+- shell: 'echo "{{dodroplet_purpose}}-`petname -w3`"'
+  with_sequence: count="{{ dodroplet_node_count | int }}"
+  register:
+    names_raw
+- name: Get ssh ssh keys
+  uri:
+    url: https://api.digitalocean.com/v2/account/keys
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+  register: ssh_keys
+- name: Create droplet
+  uri:
+    url: https://api.digitalocean.com/v2/droplets
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{digital_ocean_token}}"
+    body:
+      names: "{{names_raw|json_query('results[*].stdout')}}"
+      region: "{{dodroplet_region}}"
+      size: "{{dodroplet_size}}"
+      image: "{{dodroplet_image}}"
+      ssh_keys: "{{ ssh_keys|json_query('json.ssh_keys[*].id') }}"
+      backups: "{{dodroplet_backups}}"
+      monitoring: "{{dodroplet_monitoring}}"
+      ipv6: "{{dodroplet_ipv6}}"
+      private_networking: "{{dodroplet_private_networking}}"
+      tags: "{{dodroplet_tags}}"
+    body_format: json
+    status_code: 201
+  delegate_to: localhost
+  register: response
+
+- debug: var=response

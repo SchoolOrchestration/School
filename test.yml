@@ -1,13 +1,15 @@
 ---
-- hosts: server_swarm_manager
-  tasks:
-  - name: docker info
-    command: "docker info --format '{%raw%}{{ json . }}'{%endraw%}"
-    run_once: yes
-    register: "docker_info_raw"
-    become: yes
-  - name: Set docker info_raw
-    set_fact:
-      docker_info: "{{ (docker_info_raw.stdout|from_json) }}"
-  - debug:
-      msg: "{{docker_info}}"
+- hosts: localhost
+  roles:
+    - dodroplet
+  # tasks:
+  # - name: docker info
+  #   command: "docker info --format '{%raw%}{{ json . }}'{%endraw%}"
+  #   run_once: yes
+  #   register: "docker_info_raw"
+  #   become: yes
+  # - name: Set docker info_raw
+  #   set_fact:
+  #     docker_info: "{{ (docker_info_raw.stdout|from_json) }}"
+  # - debug:
+  #     msg: "{{docker_info}}"
