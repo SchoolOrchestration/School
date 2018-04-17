@@ -80,16 +80,19 @@ This example will create a 3 node cluser. 1x master and 2x slaves (in different 
 
 **Create the master node**
 ```
-ansible-playbook manage.create.nodes.yml -i inventory/digital_ocean.py -e 'host_key_checking=False node_count=1 tags=harden_required,pg_master dodroplet_purpose=postgres'
+ansible-playbook manage.create.nodes.yml -i inventory/digital_ocean.py -e 'host_key_checking=False node_count=1 tags=harden_required,pg_master,server_database dodroplet_purpose=postgres'
 ```
 
 **Create the slaves**
 ```
-ansible-playbook manage.create.nodes.yml -i inventory/digital_ocean.py -e 'host_key_checking=False node_count=2 tags=harden_required,pg_slave dodroplet_purpose=postgres'
+ansible-playbook manage.create.nodes.yml -i inventory/digital_ocean.py -e 'host_key_checking=False node_count=2 tags=harden_required,pg_slave,server_database dodroplet_purpose=postgres'
 ```
 
 Head over to `SchoolData` and run the playbook
 
 ```
+# setup master with slaving:
 ansible-playbook datas.yml -i inventory/digital_ocean.py
+# verify replication is working:
+ansible-playbook verify_replication.yml -i inventory/digital_ocean.py
 ```
