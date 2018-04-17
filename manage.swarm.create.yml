@@ -1,0 +1,20 @@
+---
+- hosts: server_swarm
+  roles:
+  - role: geerlingguy.pip
+    become: yes
+    tags: ['install_docker', 'install']
+  - role: geerlingguy.docker
+    become: yes
+    tags: ['install_docker', 'install']
+  post_tasks:
+    - name: Am I in a swarm?
+      command: "docker info --format '{%raw%}{{.Swarm.LocalNodeState}}'{%endraw%}"
+      become: yes
+      register: is_swarm
+      tags: init
+    - name: Init swarm
+      shell: "docker swarm init --listen-addr {{ ansible_default_ipv4.address }}:2377 --advertise-addr {{ ansible_default_ipv4.address }}"
+      become: yes
+      when: is_swarm.stdout == "inactive"
+      tags: init

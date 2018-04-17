@@ -72,7 +72,13 @@ Things which may require a couple of plays
 
 ### Start a swarm
 
-todo
+```
+# create the original node:
+ansible-playbook manage.create.nodes.yml -i inventory/digital_ocean.py -e 'host_key_checking=False node_count=1 tags=harden_required,server_swarm,server_swarm_manager,test_swarm dodroplet_purpose=swarm'
+
+# Init the swarm:
+ansible-playbook manage.swarm.create.yml -i inventory/digital_ocean.py
+```
 
 ### Manage a swarm
 
