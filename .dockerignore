@@ -1,0 +1,10 @@
+inventory/digital_ocean.ini
+group_vars/all.yml
+.DS_Store
+release.sh
+test.yml
+.idea/
+env
+*.retry
+.vault.key
+ansible-digital_ocean.cache
