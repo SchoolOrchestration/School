@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: remove
   tasks:
     - name: Get droplet id
       uri:

@@ -1,7 +1,33 @@
 ---
 - hosts: localhost
-  roles:
-    - dodroplet
+  tasks:
+    - name: Get tagged resources
+      uri:
+        url: https://api.digitalocean.com/v2/droplets?tag_name=harden_required
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Bearer {{digital_ocean_token}}"
+      register: hardened_droplets
+    - debug: var=hardened_droplets
+
+    - name: Remove tag
+      uri:
+        url: https://api.digitalocean.com/v2/tags/harden_required/resources
+        method: DELETE
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Bearer {{digital_ocean_token}}"
+        body:
+          resources:
+            - resource_id: "{{item.id}}"
+              resource_type: "droplet"
+        body_format: json
+        status_code: 204
+      with_items: "{{hardened_droplets.json.droplets}}"
+
+
+  # roles:
+  #   - dodroplet
   # tasks:
   # - name: docker info
   #   command: "docker info --format '{%raw%}{{ json . }}'{%endraw%}"

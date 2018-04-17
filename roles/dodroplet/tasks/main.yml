@@ -29,7 +29,7 @@
       private_networking: "{{dodroplet_private_networking}}"
       tags: "{{dodroplet_tags}}"
     body_format: json
-    status_code: 201
+    status_code: 202
   delegate_to: localhost
   register: response
 

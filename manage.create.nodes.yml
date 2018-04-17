@@ -14,15 +14,18 @@
       prompt: 'How many nodes to add'
       private: no
       default: 3
-  vars:
-    swarm_droplet_size: 2gb
-    pip_install_packages:
-      - name: docker
-  pre_tasks:
-    - name: Create nodes
-      include_role:
-        name: swarmnode
-      with_sequence: count="{{ node_count | int }}"
+    - name: tags
+      prompt: 'Comma seperated list of tags e.g. (foo,bar,baz)'
+      private: no
+      default: "harden_required"
+  roles:
+    - name: dodroplet
+      dodroplet_node_count: "{{node_count}}"
+      dodroplet_tags: "{{ tags.split(',') }}"
+  post_tasks:
+    - name: Wait a minute for the nodes to come up
+      wait_for:
+        timeout: 60
 
 - name: Refresh inventory
   hosts:
@@ -32,8 +35,10 @@
 
 - name: Secure the droplet
   hosts:
-    - installing
+    - harden_required
   gather_facts: false
+  vars:
+    - ansible_ssh_user: root
   pre_tasks:
   - name: install python 2
     raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
@@ -48,4 +53,28 @@
     - role: geerlingguy.pip
       tags: ['install_docker']
       become: yes
+  post_tasks:
+    - name: Get tagged resources
+      uri:
+        url: https://api.digitalocean.com/v2/droplets?tag_name=harden_required
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Bearer {{digital_ocean_token}}"
+      register: hardened_droplets
+
+    - name: Remove tag
+      uri:
+        url: https://api.digitalocean.com/v2/tags/harden_required/resources
+        method: DELETE
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Bearer {{digital_ocean_token}}"
+        body:
+          resources:
+            - resource_id: "{{item.id}}"
+              resource_type: "droplet"
+        body_format: json
+        status_code: 204
+      with_items: "{{hardened_droplets.json.droplets}}"
+
 

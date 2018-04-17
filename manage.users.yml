@@ -1,0 +1,7 @@
+---
+- name: Create new users
+  hosts:
+   - all
+  roles:
+    - name: users
+      users: "{{ssh_users}}"
