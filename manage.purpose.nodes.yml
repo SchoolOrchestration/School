@@ -1,0 +1,14 @@
+#
+# Prepare a node for it's purpose
+#
+---
+# prepare a swarm node:
+- hosts: server_swarm
+  roles:
+  - role: geerlingguy.pip
+    tags: ['install_docker']
+  - role: geerlingguy.docker
+    tags: ['install_docker']
+  post_tasks:
+    - name: snapshot it
+      debug: msg="todo"

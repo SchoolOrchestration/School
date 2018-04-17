@@ -70,7 +70,29 @@ ansible-playbook manage.delete.node.yml -i inventory/digital_ocean.py
 
 Things which may require a couple of plays
 
+### Start a swarm
+
+todo
+
 ### Manage a swarm
+
+Once you've set up a basic swarm, you can manage it's state with tags:
+
+The following tags are important:
+
+* `server_swarm`: Part of the swarm (will join as a worker by default)
+* `server_swarm_worker`: Worker in a swarm
+* `server_swarm_manager`: Manager in a swarm
+* `server_swarm_remove`: Remove a node from a swarm
+
+```
+ansible-playbook manage.swarm.yml -i inventory/digital_ocean.py
+```
+
+**Notes:**
+
+* Tags execute in order. So, if a node has: `server_swarm_worker` and `server_swarm_manager`, it will be a manager.
+* _anything_ tagged with `server_swarm_remove` will be removed
 
 ### Manage a postgres cluster
 
